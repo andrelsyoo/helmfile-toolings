@@ -1,0 +1,23 @@
+repositories:
+  - name: argo-cd
+    url: https://argoproj.github.io/argo-helm
+
+helmDefaults:
+  wait: true
+  timeout: 600
+  recreatePods: true
+  force: true
+
+releases:
+  - name: argocd
+    namespace: argocd
+    chart: bitnami/argo-cd
+    version: 4.4.12
+    #values:
+    #  - values/playground-env/argocd/values.yaml  (not using custom for now)
+
+    cleanupOnFail: true
+    disableValidation: true
+    disableValidationOnInstall: true
+
+
