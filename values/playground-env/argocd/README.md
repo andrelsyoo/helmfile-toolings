@@ -15,4 +15,9 @@ Execute the following commands to obtain the Argo CD credentials:
 ```
 echo "Username: \"admin\""
 echo "Password: $(kubectl -n argocd get secret argocd-secret -o jsonpath="{.data.clearPassword}" | base64 -d)"
+
+or
+
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
 ```
